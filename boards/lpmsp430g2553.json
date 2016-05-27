@@ -1,0 +1,19 @@
+{
+  "build": {
+    "core": "msp430", 
+    "f_cpu": "16000000L", 
+    "mcu": "msp430g2553", 
+    "variant": "launchpad"
+  }, 
+  "frameworks": [
+    "energia"
+  ], 
+  "name": "TI LaunchPad w/ msp430g2553 (16MHz)", 
+  "upload": {
+    "maximum_ram_size": 512, 
+    "maximum_size": 16384, 
+    "protocol": "rf2500"
+  }, 
+  "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430g2.html", 
+  "vendor": "TI"
+}
