@@ -1,0 +1,19 @@
+{
+  "build": {
+    "core": "msp430", 
+    "f_cpu": "16000000L", 
+    "mcu": "msp430fr6989", 
+    "variant": "launchpad_fr6989"
+  }, 
+  "frameworks": [
+    "energia"
+  ], 
+  "name": "TI LaunchPad w/ msp430fr6989", 
+  "upload": {
+    "maximum_ram_size": 2048, 
+    "maximum_size": 130048, 
+    "protocol": "tilib"
+  }, 
+  "url": "http://www.ti.com/tool/msp-exp430fr6989", 
+  "vendor": "TI"
+}
