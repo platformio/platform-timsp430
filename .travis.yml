@@ -1,16 +1,25 @@
 language: python
 python:
-    - "2.7"
+  - "2.7"
 
 env:
-    - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
-    - PLATFORMIO_PROJECT_DIR=examples/energia-blink
-    - PLATFORMIO_PROJECT_DIR=examples/energia-internal-libs
-    - PLATFORMIO_PROJECT_DIR=examples/native-blink
+  - PLATFORMIO_PROJECT_DIR=examples/arduino-blink
+  - PLATFORMIO_PROJECT_DIR=examples/energia-blink
+  - PLATFORMIO_PROJECT_DIR=examples/energia-internal-libs
+  - PLATFORMIO_PROJECT_DIR=examples/native-blink
 
 install:
-    - pip install -U https://github.com/platformio/platformio/archive/develop.zip
-    - platformio platform install file://.
+  - pip install -U https://github.com/platformio/platformio/archive/develop.zip
+  - platformio platform install file://.
 
 script:
-    - platformio run -d $PLATFORMIO_PROJECT_DIR
+  - platformio run -d $PLATFORMIO_PROJECT_DIR
+
+notifications:
+  email: false
+
+  slack:
+    rooms:
+      secure: cNyrbxkU5j3CucTF2KgGGrq++A9ANBYYeq40LsZrsFj0REPvEwNDS3RdbuBZOkmEJblskIcekMo2naZvk6kgQwPi67cx1SQRyXLXOWA5VZxYcOpw23Hcu6ywrtrob4wBiGQUEeeynGJ//bM1lVgtLTl2/8uqfDTy36Y0UTlzD+hWU894IQUmXdXPBkhvoB6qNRVt+8fnI1QlCfxibvsYdYaiDfIYiTBD/B/Z53+2muVfwpJB7S3uIyLgDrGUK9J+qjmV8bqMe9Y6yrmIulkYhgD23kNu2FsuhVRDqSg84lITRZ2wfNOtmWSxa7ocRmAaB8hIpclGjs39cX52gwcCPlZQQaRBbHMikQTa6aTXBK8tL7jViXUS/obABRiOCrAUGU3zfG23Hog4Ag7T+3Gc2a318CAKdwZP/x6l4mWGxNBStZ1bv0F4VxfgJ473vjQtzNiPPg3M/xrD1zl1r3fpPPT0llYPyLKMHKwMknlTeF12hcpU8IUSC3lYoCJ67yeXYjeorYyD6EUeSyRnde1IqGgp/OILX4grG3UQlcgCGHaJdROexNEFsrDvabVXWFhGfYSm27HYNJpO1Tk8AnOIHCdXu81BvmIsXw4vRK4AOTFk2gc37LqueLx83sh4NtIdKseNBnB5rI3oRI0rnqW/ZzwUz6D1MggkjpM8hixKxd0=
+    on_failure: always
+    on_success: change
