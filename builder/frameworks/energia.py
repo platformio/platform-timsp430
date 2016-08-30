@@ -35,12 +35,6 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-energiamsp430")
 FRAMEWORK_VERSION = platform.get_package_version("framework-energiamsp430")
 assert isdir(FRAMEWORK_DIR)
 
-# include board variant
-env.VariantDirWrap(
-    join("$BUILD_DIR", "FrameworkEnergiaVariant"),
-    join(FRAMEWORK_DIR, "variants", env.BoardConfig().get("build.variant"))
-)
-
 env.Append(
     CPPDEFINES=[
         "ARDUINO=101",
@@ -48,8 +42,8 @@ env.Append(
     ],
 
     CPPPATH=[
-        join("$BUILD_DIR", "FrameworkEnergia"),
-        join("$BUILD_DIR", "FrameworkEnergiaVariant")
+        join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core")),
+        join(FRAMEWORK_DIR, "variants", env.BoardConfig().get("build.variant"))
     ],
 
     LIBSOURCE_DIRS=[

@@ -78,14 +78,15 @@ env.Append(
 
     BUILDERS=dict(
         ElfToHex=Builder(
-            action=" ".join([
+            action=env.VerboseAction(" ".join([
                 "$OBJCOPY",
                 "-O",
                 "ihex",
                 "-R",
                 ".eeprom",
                 "$SOURCES",
-                "$TARGET"]),
+                "$TARGET"
+            ]), "Building $TARGET"),
             suffix=".hex"
         )
     )
@@ -110,24 +111,21 @@ else:
 # Target: Print binary size
 #
 
-target_size = env.Alias("size", target_elf, "$SIZEPRINTCMD")
+target_size = env.Alias(
+    "size", target_elf,
+    env.VerboseAction("$SIZEPRINTCMD", "Calculating size $SOURCE"))
 AlwaysBuild(target_size)
 
 #
 # Target: Upload firmware
 #
 
-upload = env.Alias(["upload", "uploadlazy"], target_firm, "$UPLOADCMD")
+upload = env.Alias(["upload", "uploadlazy"], target_firm,
+                   env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
 AlwaysBuild(upload)
 
 #
-# Target: Unit Testing
-#
-
-AlwaysBuild(env.Alias("test", [target_firm, target_size]))
-
-#
-# Target: Define targets
+# Default targets
 #
 
 Default([target_firm, target_size])
