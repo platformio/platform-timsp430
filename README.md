@@ -12,7 +12,7 @@ MSP430 microcontrollers (MCUs) from Texas Instruments (TI) are 16-bit, RISC-base
 1. [Install PlatformIO CLI](http://docs.platformio.org/en/latest/installation.html)
 2. Install TI MSP430 development platform:
 ```bash
-# isntall the latest stable version
+# install the latest stable version
 > platformio platform install timsp430
 
 # install development version
