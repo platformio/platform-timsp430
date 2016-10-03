@@ -12,11 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""
-    Builder for Texas Instruments
-    MSP430 Ultra-Low Power 16-bit microcontrollers
-"""
-
 from os.path import join
 from platform import system
 
@@ -96,16 +91,15 @@ env.Append(
 # Target: Build executable and linkable firmware
 #
 
-target_elf = env.BuildProgram()
-
-#
-# Target: Build the .hex
-#
-
-if "uploadlazy" in COMMAND_LINE_TARGETS:
+target_elf = None
+if "nobuild" in COMMAND_LINE_TARGETS:
     target_firm = join("$BUILD_DIR", "firmware.hex")
 else:
+    target_elf = env.BuildProgram()
     target_firm = env.ElfToHex(join("$BUILD_DIR", "firmware"), target_elf)
+
+AlwaysBuild(env.Alias("nobuild", target_firm))
+target_buildprog = env.Alias("buildprog", target_firm)
 
 #
 # Target: Print binary size
@@ -120,12 +114,12 @@ AlwaysBuild(target_size)
 # Target: Upload firmware
 #
 
-upload = env.Alias(["upload", "uploadlazy"], target_firm,
-                   env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
-AlwaysBuild(upload)
+target_upload = env.Alias("upload", target_firm,
+                          env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
+AlwaysBuild(target_upload)
 
 #
 # Default targets
 #
 
-Default([target_firm, target_size])
+Default([target_buildprog, target_size])
