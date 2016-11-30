@@ -37,8 +37,8 @@ assert isdir(FRAMEWORK_DIR)
 
 env.Append(
     CPPDEFINES=[
-        "ARDUINO=101",
-        "ENERGIA=%s" % FRAMEWORK_VERSION.split(".")[1]
+        ("ARDUINO", 10610),
+        ("ENERGIA", int(FRAMEWORK_VERSION.split(".")[1]))
     ],
 
     CPPPATH=[
