@@ -35,11 +35,15 @@ env.Replace(
 
     CCFLAGS=[
         "-g",  # include debugging info (so errors include line numbers)
-        "-Os",  # optimize for size
-        # "-Wall",  # show warnings
+        "-O2",
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-mmcu=$BOARD_MCU"
+    ],
+
+    CXXFLAGS=[
+        "-fno-exceptions",
+        "-fno-threadsafe-statics"
     ],
 
     CPPDEFINES=[
@@ -48,7 +52,7 @@ env.Replace(
 
     LINK="$CC",
     LINKFLAGS=[
-        "-Os",
+        "-O2",
         "-mmcu=$BOARD_MCU",
         "-Wl,-gc-sections,-u,main"
     ],

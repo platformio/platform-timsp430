@@ -1,19 +1,26 @@
 {
   "build": {
-    "core": "msp430", 
-    "f_cpu": "16000000L", 
-    "mcu": "msp430fr5739", 
-    "variant": "fraunchpad"
-  }, 
+    "core": "msp430",
+    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR5739LP",
+    "f_cpu": "16000000L",
+    "mcu": "msp430fr5739",
+    "hwids": [
+      [
+        "0x2341",
+        "0x0c9f"
+      ]
+    ],
+    "variant": "MSP-EXP430FR5739LP"
+  },
   "frameworks": [
     "energia"
-  ], 
-  "name": "TI FraunchPad w/ msp430fr5739", 
+  ],
+  "name": "TI FraunchPad MSP-EXP430FR5739LP",
   "upload": {
-    "maximum_ram_size": 1024, 
-    "maximum_size": 15872, 
+    "maximum_ram_size": 512,
+    "maximum_size": 16384,
     "protocol": "rf2500"
-  }, 
-  "url": "http://www.ti.com/tool/msp-exp430fr5739", 
+  },
+  "url": "http://www.ti.com/tool/msp-exp430fr5739",
   "vendor": "TI"
 }
