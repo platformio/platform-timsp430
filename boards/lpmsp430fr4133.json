@@ -1,19 +1,26 @@
 {
   "build": {
-    "core": "msp430", 
-    "f_cpu": "16000000L", 
-    "mcu": "msp430fr4133", 
-    "variant": "launchpad_fr4133"
-  }, 
+    "core": "msp430",
+    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR4133LP",
+    "f_cpu": "8000000L",
+    "mcu": "msp430fr4133",
+    "hwids": [
+      [
+        "0x2341",
+        "0x0c9f"
+      ]
+    ],
+    "variant": "MSP-EXP430FR4133LP"
+  },
   "frameworks": [
     "energia"
-  ], 
-  "name": "TI LaunchPad w/ msp430fr4133", 
+  ],
+  "name": "TI LaunchPad MSP-EXP430FR4133LP",
   "upload": {
-    "maximum_ram_size": 2048, 
-    "maximum_size": 15360, 
+    "maximum_ram_size": 2048,
+    "maximum_size": 15360,
     "protocol": "tilib"
-  }, 
-  "url": "http://www.ti.com/tool/msp-exp430fr4133", 
+  },
+  "url": "http://www.ti.com/tool/msp-exp430fr4133",
   "vendor": "TI"
 }
