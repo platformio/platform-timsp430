@@ -1,19 +1,26 @@
 {
   "build": {
-    "core": "msp430", 
-    "f_cpu": "8000000L", 
-    "mcu": "msp430fr5969", 
-    "variant": "launchpad_fr5969"
-  }, 
+    "core": "msp430",
+    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR5969LP",
+    "f_cpu": "8000000L",
+    "mcu": "msp430fr5969",
+    "hwids": [
+      [
+        "0x2341",
+        "0x0c9f"
+      ]
+    ],
+    "variant": "MSP-EXP430FR5969LP"
+  },
   "frameworks": [
     "energia"
-  ], 
-  "name": "TI LaunchPad w/ msp430fr5969", 
+  ],
+  "name": "TI LaunchPad MSP-EXP430FR5969LP",
   "upload": {
-    "maximum_ram_size": 1024, 
-    "maximum_size": 65536, 
+    "maximum_ram_size": 2048,
+    "maximum_size": 65536,
     "protocol": "tilib"
-  }, 
-  "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430fr5969.html", 
+  },
+  "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430fr5969.html",
   "vendor": "TI"
 }

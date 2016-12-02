@@ -42,7 +42,7 @@
     "framework-energiamsp430": {
       "type": "framework",
       "optional": true,
-      "version": "~1.17.0"
+      "version": "1.10610.0"
     },
     "tool-mspdebug": {
       "type": "uploader",
