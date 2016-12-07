@@ -34,7 +34,7 @@ FRAMEWORK_VERSION = platform.get_package_version("framework-arduinomsp430")
 assert isdir(FRAMEWORK_DIR)
 
 env.Append(
-    CPPDEFINES=["ARDUINO=%s" % FRAMEWORK_VERSION.split(".")[1]],
+    CPPDEFINES=[("ARDUINO", int(FRAMEWORK_VERSION.split(".")[1]))],
 
     CPPPATH=[
         join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core"))
