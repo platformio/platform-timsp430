@@ -46,7 +46,7 @@
     "tool-mspdebug": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.20.0"
+      "version": "~1.2200.0"
     }
   }
 }
