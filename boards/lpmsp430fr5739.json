@@ -12,6 +12,21 @@
     ],
     "variant": "MSP-EXP430FR5739LP"
   },
+  "debug": {
+    "tools": {
+      "mspdebug": {
+        "server": {
+          "package": "tool-mspdebug",
+          "executable": "mspdebug",
+          "arguments": [
+            "rf2500",
+            "gdb"
+          ]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "energia"
   ],
