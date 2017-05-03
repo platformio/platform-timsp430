@@ -12,7 +12,21 @@
     ],
     "variant": "MSP-EXP430F5529LP"
   },
-
+  "debug": {
+    "tools": {
+      "mspdebug": {
+        "server": {
+          "package": "tool-mspdebug",
+          "executable": "mspdebug",
+          "arguments": [
+            "tilib",
+            "gdb"
+          ]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "energia"
   ],

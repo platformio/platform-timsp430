@@ -25,6 +25,7 @@ env.Replace(
     AS="msp430-as",
     CC="msp430-gcc",
     CXX="msp430-g++",
+    GDB="msp430-gdb",
     OBJCOPY="msp430-objcopy",
     RANLIB="msp430-ranlib",
     SIZETOOL="msp430-size",
@@ -49,6 +50,8 @@ env.Replace(
     CPPDEFINES=[
         ("F_CPU", "$BOARD_F_CPU")
     ],
+
+    PIODEBUGFLAGS=["-O0", "-g3", "-ggdb", "-gdwarf-2"],
 
     LINK="$CC",
     LINKFLAGS=[

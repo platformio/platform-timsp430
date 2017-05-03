@@ -12,6 +12,21 @@
     ],
     "variant": "MSP-EXP430FR5969LP"
   },
+  "debug": {
+    "tools": {
+      "mspdebug": {
+        "server": {
+          "package": "tool-mspdebug",
+          "executable": "mspdebug",
+          "arguments": [
+            "tilib",
+            "gdb"
+          ]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "energia"
   ],

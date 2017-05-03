@@ -12,6 +12,21 @@
     ],
     "variant": "MSP-EXP430FR4133LP"
   },
+  "debug": {
+    "tools": {
+      "mspdebug": {
+        "server": {
+          "package": "tool-mspdebug",
+          "executable": "mspdebug",
+          "arguments": [
+            "tilib",
+            "gdb"
+          ]
+        },
+        "onboard": true
+      }
+    }
+  },
   "frameworks": [
     "energia"
   ],
