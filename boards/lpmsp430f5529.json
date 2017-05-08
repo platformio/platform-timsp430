@@ -3,13 +3,13 @@
     "core": "msp430",
     "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430F5529LP",
     "f_cpu": "16000000L",
-    "mcu": "msp430f5529",
     "hwids": [
       [
         "0x2341",
         "0x0c9f"
       ]
     ],
+    "mcu": "msp430f5529",
     "variant": "MSP-EXP430F5529LP"
   },
   "debug": {
@@ -19,11 +19,19 @@
         "server": [
           {
             "executable": "msp430-gdbproxy",
+            "init_cmds": [
+              "target remote $DEBUG_PORT",
+              "monitor erase",
+              "file \"$PROG_PATH\"",
+              "load \"$PROG_PATH\"",
+              "monitor reset halt",
+              "tb main"
+            ],
             "package": "tool-msp430gdbproxy",
             "system": [
-                "windows",
-                "windows_amd64",
-                "windows_x86"
+              "windows",
+              "windows_amd64",
+              "windows_x86"
             ]
           },
           {
