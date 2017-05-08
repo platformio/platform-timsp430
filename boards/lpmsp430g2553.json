@@ -3,27 +3,43 @@
     "core": "msp430",
     "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430G2553LP",
     "f_cpu": "16000000L",
-    "mcu": "msp430g2553",
     "hwids": [
       [
         "0x2341",
         "0x0c9f"
       ]
     ],
+    "mcu": "msp430g2553",
     "variant": "MSP-EXP430G2553LP"
   },
   "debug": {
     "tools": {
       "mspdebug": {
-        "server": {
-          "package": "tool-mspdebug",
-          "executable": "mspdebug",
-          "arguments": [
-            "rf2500",
-            "gdb"
-          ]
-        },
-        "onboard": true
+        "onboard": true,
+        "server": [
+          {
+            "executable": "msp430-gdbproxy",
+            "package": "tool-msp430gdbproxy",
+            "system": [
+                "windows",
+                "windows_amd64",
+                "windows_x86"
+            ]
+          },
+          {
+            "arguments": [
+              "$UPLOAD_PROTOCOL",
+              "gdb"
+            ],
+            "executable": "mspdebug",
+            "package": "tool-mspdebug",
+            "system": [
+              "darwin_x86_64",
+              "linux_i686",
+              "linux_x86_64"
+            ]
+          }
+        ]
       }
     }
   },

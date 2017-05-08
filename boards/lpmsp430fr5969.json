@@ -15,15 +15,31 @@
   "debug": {
     "tools": {
       "mspdebug": {
-        "server": {
-          "package": "tool-mspdebug",
-          "executable": "mspdebug",
-          "arguments": [
-            "tilib",
-            "gdb"
-          ]
-        },
-        "onboard": true
+        "onboard": true,
+        "server": [
+          {
+            "executable": "msp430-gdbproxy",
+            "package": "tool-msp430gdbproxy",
+            "system": [
+                "windows",
+                "windows_amd64",
+                "windows_x86"
+            ]
+          },
+          {
+            "arguments": [
+              "$UPLOAD_PROTOCOL",
+              "gdb"
+            ],
+            "executable": "mspdebug",
+            "package": "tool-mspdebug",
+            "system": [
+              "darwin_x86_64",
+              "linux_i686",
+              "linux_x86_64"
+            ]
+          }
+        ]
       }
     }
   },

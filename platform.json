@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-timsp430.git"
   },
-  "version": "2.0.0",
+  "version": "2.0.1-alpha.1",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "https://sourceforge.net/projects/platformio-storage/files/packages/manifest.json/download",
@@ -47,6 +47,11 @@
       "type": "uploader",
       "optional": true,
       "version": "~1.2200.0"
+    },
+    "tool-msp430gdbproxy": {
+      "type": "debugger",
+      "optional": true,
+      "version": "~1.18.0"
     }
   }
 }
