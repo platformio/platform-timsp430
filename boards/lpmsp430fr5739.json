@@ -18,16 +18,12 @@
         "onboard": true,
         "server": [
           {
-            "executable": "msp430-gdbproxy",
-            "init_cmds": [
-              "target remote $DEBUG_PORT",
-              "monitor erase",
-              "file \"$PROG_PATH\"",
-              "load \"$PROG_PATH\"",
-              "monitor reset halt",
-              "tb main"
+            "arguments": [
+              "tilib",
+              "gdb"
             ],
-            "package": "tool-msp430gdbproxy",
+            "executable": "mspdebug",
+            "package": "tool-mspdebug",
             "system": [
               "windows",
               "windows_amd64",

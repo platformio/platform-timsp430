@@ -16,38 +16,14 @@
     "tools": {
       "mspdebug": {
         "onboard": true,
-        "server": [
-          {
-            "executable": "msp430-gdbproxy",
-            "init_cmds": [
-              "target remote $DEBUG_PORT",
-              "monitor erase",
-              "file \"$PROG_PATH\"",
-              "load \"$PROG_PATH\"",
-              "monitor reset halt",
-              "tb main"
-            ],
-            "package": "tool-msp430gdbproxy",
-            "system": [
-              "windows",
-              "windows_amd64",
-              "windows_x86"
-            ]
-          },
-          {
-            "arguments": [
-              "$UPLOAD_PROTOCOL",
-              "gdb"
-            ],
-            "executable": "mspdebug",
-            "package": "tool-mspdebug",
-            "system": [
-              "darwin_x86_64",
-              "linux_i686",
-              "linux_x86_64"
-            ]
-          }
-        ]
+        "server": {
+          "arguments": [
+            "$UPLOAD_PROTOCOL",
+            "gdb"
+          ],
+          "executable": "mspdebug",
+          "package": "tool-mspdebug"
+        }
       }
     }
   },
