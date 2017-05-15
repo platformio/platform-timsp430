@@ -15,15 +15,15 @@
   "debug": {
     "tools": {
       "mspdebug": {
+        "onboard": true,
         "server": {
-          "package": "tool-mspdebug",
-          "executable": "mspdebug",
           "arguments": [
-            "tilib",
+            "$UPLOAD_PROTOCOL",
             "gdb"
-          ]
-        },
-        "onboard": true
+          ],
+          "executable": "mspdebug",
+          "package": "tool-mspdebug"
+        }
       }
     }
   },
