@@ -47,11 +47,6 @@
       "type": "uploader",
       "optional": true,
       "version": "~1.2200.0"
-    },
-    "tool-msp430gdbproxy": {
-      "type": "debugger",
-      "optional": true,
-      "version": "~1.18.0"
     }
   }
 }
