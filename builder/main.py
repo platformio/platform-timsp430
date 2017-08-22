@@ -30,7 +30,7 @@ env.Replace(
     RANLIB="msp430-ranlib",
     SIZETOOL="msp430-size",
 
-    ARFLAGS=["rcs"],
+    ARFLAGS=["rc"],
 
     ASFLAGS=["-x", "assembler-with-cpp"],
 
