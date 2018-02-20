@@ -3,13 +3,13 @@
     "core": "msp430",
     "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR5969LP",
     "f_cpu": "8000000L",
-    "mcu": "msp430fr5969",
     "hwids": [
       [
         "0x2341",
         "0x0c9f"
       ]
     ],
+    "mcu": "msp430fr5969",
     "variant": "MSP-EXP430FR5969LP"
   },
   "debug": {
