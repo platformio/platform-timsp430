@@ -30,11 +30,10 @@ env = DefaultEnvironment()
 platform = env.PioPlatform()
 
 FRAMEWORK_DIR = platform.get_package_dir("framework-arduinomsp430")
-FRAMEWORK_VERSION = platform.get_package_version("framework-arduinomsp430")
 assert isdir(FRAMEWORK_DIR)
 
 env.Append(
-    CPPDEFINES=[("ARDUINO", int(FRAMEWORK_VERSION.split(".")[1]))],
+    CPPDEFINES=[("ARDUINO", 10805)],
 
     CPPPATH=[
         join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core"))
