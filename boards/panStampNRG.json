@@ -1,19 +1,19 @@
 {
   "build": {
-    "core": "panstamp", 
-    "f_cpu": "12000000L", 
-    "mcu": "cc430f5137", 
+    "core": "panstamp",
+    "f_cpu": "12000000L",
+    "mcu": "cc430f5137",
     "variant": "panstamp_nrg_1.1"
-  }, 
+  },
   "frameworks": [
     "arduino"
-  ], 
-  "name": "PanStamp NRG 1.1", 
+  ],
+  "name": "PanStamp NRG 1.1",
   "upload": {
-    "maximum_ram_size": 4096, 
-    "maximum_size": 32640, 
+    "maximum_ram_size": 4096,
+    "maximum_size": 32640,
     "protocol": "flash-bsl"
-  }, 
-  "url": "http://www.panstamp.com/product/197/", 
+  },
+  "url": "http://www.panstamp.com/product/197/",
   "vendor": "PanStamp"
 }

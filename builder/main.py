@@ -35,7 +35,6 @@ env.Replace(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
-        "-g",  # include debugging info (so errors include line numbers)
         "-O2",
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
@@ -71,7 +70,6 @@ env.Replace(
     ],
     UPLOADCMD='$UPLOADER $UPLOADERFLAGS "prog $SOURCES"',
 
-    PROGNAME="firmware",
     PROGSUFFIX=".elf"
 )
 
@@ -94,16 +92,20 @@ env.Append(
     )
 )
 
+# Allow user to override via pre:script
+if env.get("PROGNAME", "program") == "program":
+    env.Replace(PROGNAME="firmware")
+
 #
 # Target: Build executable and linkable firmware
 #
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
-    target_firm = join("$BUILD_DIR", "firmware.hex")
+    target_firm = join("$BUILD_DIR", "${PROGNAME}.hex")
 else:
     target_elf = env.BuildProgram()
-    target_firm = env.ElfToHex(join("$BUILD_DIR", "firmware"), target_elf)
+    target_firm = env.ElfToHex(join("$BUILD_DIR", "${PROGNAME}"), target_elf)
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
