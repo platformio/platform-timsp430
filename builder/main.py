@@ -32,6 +32,22 @@ env.Replace(
 
     ARFLAGS=["rc"],
 
+    SIZEPROGREGEXP=r"^(?:\.text|\.data|\.bootloader)\s+(\d+).*",
+    SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
+    SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
+    SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
+
+    UPLOADER="mspdebug",
+    UPLOADERFLAGS=[
+        "$UPLOAD_PROTOCOL" if system() != "Windows" else "tilib",
+        "--force-reset"
+    ],
+    UPLOADCMD='$UPLOADER $UPLOADERFLAGS "prog $SOURCES"',
+
+    PROGSUFFIX=".elf"
+)
+
+env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
@@ -61,21 +77,6 @@ env.Replace(
 
     LIBS=["m"],
 
-    SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
-
-    UPLOADER="mspdebug",
-    UPLOADERFLAGS=[
-        "$UPLOAD_PROTOCOL" if system() != "Windows" else "tilib",
-        "--force-reset"
-    ],
-    UPLOADCMD='$UPLOADER $UPLOADERFLAGS "prog $SOURCES"',
-
-    PROGSUFFIX=".elf"
-)
-
-env.Append(
-    ASFLAGS=env.get("CCFLAGS", [])[:],
-
     BUILDERS=dict(
         ElfToHex=Builder(
             action=env.VerboseAction(" ".join([
@@ -91,6 +92,10 @@ env.Append(
         )
     )
 )
+
+# copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
+env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
+
 
 # Allow user to override via pre:script
 if env.get("PROGNAME", "program") == "program":
