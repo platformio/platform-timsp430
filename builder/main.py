@@ -29,8 +29,11 @@ env.Replace(
     OBJCOPY="msp430-objcopy",
     RANLIB="msp430-ranlib",
     SIZETOOL="msp430-size",
+    LINK="$CC",
 
     ARFLAGS=["rc"],
+
+    PIODEBUGFLAGS=["-O0", "-g3", "-ggdb", "-gdwarf-2"],
 
     SIZEPROGREGEXP=r"^(?:\.text|\.data|\.bootloader)\s+(\d+).*",
     SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
@@ -66,9 +69,6 @@ env.Append(
         ("F_CPU", "$BOARD_F_CPU")
     ],
 
-    PIODEBUGFLAGS=["-O0", "-g3", "-ggdb", "-gdwarf-2"],
-
-    LINK="$CC",
     LINKFLAGS=[
         "-O2",
         "-mmcu=$BOARD_MCU",
