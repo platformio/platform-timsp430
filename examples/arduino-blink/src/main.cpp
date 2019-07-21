@@ -4,7 +4,7 @@
  * then off for one second, repeatedly.
  */
 
-#include <Energia.h>
+#include <Arduino.h>
 
 void setup()
 {

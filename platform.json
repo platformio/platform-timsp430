@@ -6,21 +6,21 @@
   "homepage": "http://platformio.org/platforms/timsp430",
   "license": "Apache-2.0",
   "engines": {
-    "platformio": "^3.0.0"
+    "platformio": "<5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-timsp430.git"
   },
-  "version": "2.0.6",
+  "version": "2.1.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
   ],
   "frameworks": {
     "arduino": {
-      "package": "framework-arduinomsp430",
-      "script": "builder/frameworks/arduino.py"
+      "package": "framework-energiamsp430",
+      "script": "builder/frameworks/energia.py"
     },
     "energia": {
       "package": "framework-energiamsp430",
@@ -31,11 +31,6 @@
     "toolchain-timsp430": {
       "type": "toolchain",
       "version": "~1.40603.0"
-    },
-    "framework-arduinomsp430": {
-      "type": "framework",
-      "optional": true,
-      "version": "~1.10601.0"
     },
     "framework-energiamsp430": {
       "type": "framework",

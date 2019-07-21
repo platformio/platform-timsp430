@@ -35,6 +35,7 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-energiamsp430")
 FRAMEWORK_VERSION = platform.get_package_version("framework-energiamsp430")
 assert isdir(FRAMEWORK_DIR)
 
+
 env.Append(
     CPPDEFINES=[
         ("ARDUINO", 10805),

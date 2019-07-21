@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import sys
 from os.path import join
 from platform import system
 
@@ -101,12 +102,19 @@ env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
 if env.get("PROGNAME", "program") == "program":
     env.Replace(PROGNAME="firmware")
 
+if "energia" in env.get("PIOFRAMEWORK", []):
+    sys.stderr.write(
+        "WARNING!!! Using of `framework = energia` in `platformio.ini` is "
+        "deprecated. Please replace with `framework = arduino`.\n")
+    env.Replace(PIOFRAMEWORK=["arduino"])
+
 #
 # Target: Build executable and linkable firmware
 #
 
 target_elf = None
 if "nobuild" in COMMAND_LINE_TARGETS:
+    target_elf = join("$BUILD_DIR", "${PROGNAME}.elf")
     target_firm = join("$BUILD_DIR", "${PROGNAME}.hex")
 else:
     target_elf = env.BuildProgram()
