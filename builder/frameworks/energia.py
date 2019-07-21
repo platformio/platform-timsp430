@@ -24,6 +24,7 @@ before.
 http://energia.nu/reference/
 """
 
+import sys
 from os.path import isdir, join
 
 from SCons.Script import DefaultEnvironment
@@ -34,6 +35,12 @@ platform = env.PioPlatform()
 FRAMEWORK_DIR = platform.get_package_dir("framework-energiamsp430")
 FRAMEWORK_VERSION = platform.get_package_version("framework-energiamsp430")
 assert isdir(FRAMEWORK_DIR)
+
+if "energia" in env.get("PIOFRAMEWORK", ""):
+    sys.stderr.write(
+        "WARNING!!! Using of `framework = energia` in `platformio.ini` is "
+        "deprecated. Please replace with `framework = arduino`.\n")
+
 
 env.Append(
     CPPDEFINES=[

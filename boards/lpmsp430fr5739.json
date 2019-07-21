@@ -48,6 +48,7 @@
     }
   },
   "frameworks": [
+    "arduino",
     "energia"
   ],
   "name": "TI FraunchPad MSP-EXP430FR5739LP",

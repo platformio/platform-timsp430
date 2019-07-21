@@ -28,5 +28,11 @@ How to build PlatformIO based project
     # Upload firmware
     > platformio run --target upload
 
+    # Build specific environment
+    > platformio run -e lpmsp430g2553
+
+    # Upload firmware for the specific environment
+    > platformio run -e lpmsp430g2553 --target upload
+
     # Clean build files
     > platformio run --target clean

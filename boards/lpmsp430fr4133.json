@@ -28,6 +28,7 @@
     }
   },
   "frameworks": [
+    "arduino",
     "energia"
   ],
   "name": "TI LaunchPad MSP-EXP430FR4133LP",

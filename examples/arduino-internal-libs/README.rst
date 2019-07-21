@@ -20,7 +20,7 @@ How to build PlatformIO based project
 .. code-block:: bash
 
     # Change directory to example
-    > cd platform-timsp430/examples/energia-internal-libs
+    > cd platform-timsp430/examples/arduino-internal-libs
 
     # Build project
     > platformio run
