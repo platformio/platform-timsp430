@@ -48,8 +48,7 @@
     }
   },
   "frameworks": [
-    "arduino",
-    "energia"
+    "arduino"
   ],
   "name": "TI LaunchPad MSP-EXP430G2553LP",
   "upload": {
