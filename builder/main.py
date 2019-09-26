@@ -36,7 +36,7 @@ env.Replace(
 
     PIODEBUGFLAGS=["-O0", "-g3", "-ggdb", "-gdwarf-2"],
 
-    SIZEPROGREGEXP=r"^(?:\.text|\.data|\.bootloader)\s+(\d+).*",
+    SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.vectors)\s+([0-9]+).*",
     SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
     SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
     SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
@@ -55,7 +55,7 @@ env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
-        "-O2",
+        "-Os",
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-mmcu=$BOARD_MCU"
@@ -71,7 +71,7 @@ env.Append(
     ],
 
     LINKFLAGS=[
-        "-O2",
+        "-Os",
         "-mmcu=$BOARD_MCU",
         "-Wl,-gc-sections,-u,main"
     ],
@@ -136,7 +136,22 @@ AlwaysBuild(target_size)
 # Target: Upload firmware
 #
 
-target_upload = env.Alias("upload", target_firm,
+upload_target = target_firm
+if env.subst("$UPLOAD_PROTOCOL") == "dslite":
+    env.Replace(
+        UPLOADER=join(env.PioPlatform().get_package_dir(
+            "tool-dslite") or "", "DebugServer", "bin", "DSLite"),
+        UPLOADERFLAGS=[
+            "load", "-c",
+            join(env.PioPlatform().get_package_dir("tool-dslite") or "",
+                 "%s.ccxml" % env.BoardConfig().get("build.variant")), "-f"
+        ],
+        UPLOADCMD="$UPLOADER $UPLOADERFLAGS $SOURCES"
+    )
+    upload_target = target_elf
+    upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+
+target_upload = env.Alias("upload", upload_target,
                           env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
 AlwaysBuild(target_upload)
 

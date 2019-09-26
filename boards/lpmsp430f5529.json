@@ -2,7 +2,7 @@
   "build": {
     "core": "msp430",
     "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430F5529LP",
-    "f_cpu": "16000000L",
+    "f_cpu": "25000000L",
     "hwids": [
       [
         "0x2341",
@@ -33,8 +33,8 @@
   "name": "TI LaunchPad MSP-EXP430F5529LP",
   "upload": {
     "maximum_ram_size": 8192,
-    "maximum_size": 131072,
-    "protocol": "tilib"
+    "maximum_size": 48128,
+    "protocol": "dslite"
   },
   "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430f5529lp.html",
   "vendor": "TI"

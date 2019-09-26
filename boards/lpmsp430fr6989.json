@@ -33,8 +33,8 @@
   "name": "TI LaunchPad MSP-EXP430FR6989LP",
   "upload": {
     "maximum_ram_size": 2048,
-    "maximum_size": 130048,
-    "protocol": "tilib"
+    "maximum_size": 48128,
+    "protocol": "dslite"
   },
   "url": "http://www.ti.com/tool/msp-exp430fr6989",
   "vendor": "TI"

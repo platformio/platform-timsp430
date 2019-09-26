@@ -1,7 +1,7 @@
 {
   "build": {
     "core": "msp430",
-    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR5969LP",
+    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR2433LP",
     "f_cpu": "8000000L",
     "hwids": [
       [
@@ -9,8 +9,8 @@
         "0x0c9f"
       ]
     ],
-    "mcu": "msp430fr5969",
-    "variant": "MSP-EXP430FR5969LP"
+    "mcu": "msp430fr2433",
+    "variant": "MSP-EXP430FR2433LP"
   },
   "debug": {
     "tools": {
@@ -30,12 +30,12 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "TI LaunchPad MSP-EXP430FR5969LP",
+  "name": "TI LaunchPad MSP-EXP430FR2433LP",
   "upload": {
-    "maximum_ram_size": 2048,
-    "maximum_size": 48128,
+    "maximum_ram_size": 4096,
+    "maximum_size": 15360,
     "protocol": "dslite"
   },
-  "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430fr5969.html",
+  "url": "http://www.ti.com/product/MSP430FR2433",
   "vendor": "TI"
 }

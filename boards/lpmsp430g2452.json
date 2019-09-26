@@ -1,7 +1,7 @@
 {
   "build": {
     "core": "msp430",
-    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR5739LP",
+    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430G2452LP",
     "f_cpu": "16000000L",
     "hwids": [
       [
@@ -9,8 +9,8 @@
         "0x0c9f"
       ]
     ],
-    "mcu": "msp430fr5739",
-    "variant": "MSP-EXP430FR5739LP"
+    "mcu": "msp430g2452",
+    "variant": "MSP-EXP430G2452LP"
   },
   "debug": {
     "tools": {
@@ -50,12 +50,12 @@
   "frameworks": [
     "arduino"
   ],
-  "name": "TI FraunchPad MSP-EXP430FR5739LP",
+  "name": "TI LaunchPad MSP-EXP430G2 w/ MSP430G2452",
   "upload": {
-    "maximum_ram_size": 1024,
-    "maximum_size": 15743,
+    "maximum_ram_size": 256,
+    "maximum_size": 8192,
     "protocol": "rf2500"
   },
-  "url": "http://www.ti.com/tool/msp-exp430fr5739",
+  "url": "http://www.ti.com/product/MSP430G2452",
   "vendor": "TI"
 }
