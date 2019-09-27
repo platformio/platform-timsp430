@@ -30,7 +30,7 @@
   "packages": {
     "toolchain-timsp430": {
       "type": "toolchain",
-      "version": "~1.40603.0"
+      "version": "~1.40603.190926"
     },
     "framework-energiamsp430": {
       "type": "framework",
