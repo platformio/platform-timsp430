@@ -35,16 +35,23 @@ FRAMEWORK_DIR = platform.get_package_dir("framework-energiamsp430")
 FRAMEWORK_VERSION = platform.get_package_version("framework-energiamsp430")
 assert isdir(FRAMEWORK_DIR)
 
+board = env.BoardConfig()
+
+variants_dir = join(
+    "$PROJECT_DIR", board.get("build.variants_dir")) if board.get(
+        "build.variants_dir", "") else join(FRAMEWORK_DIR, "variants")
 
 env.Append(
     CPPDEFINES=[
-        ("ARDUINO", 10805),
+        ("ARDUINO", 10807),
         ("ENERGIA", int(FRAMEWORK_VERSION.split(".")[1]))
     ],
 
     CPPPATH=[
         join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core")),
-        join(FRAMEWORK_DIR, "variants", env.BoardConfig().get("build.variant"))
+        join(variants_dir, board.get("build.variant")),
+        join(platform.get_package_dir(
+            "toolchain-timsp430"), "msp430", "include")
     ],
 
     LIBSOURCE_DIRS=[
@@ -60,7 +67,7 @@ libs = []
 
 libs.append(env.BuildLibrary(
     join("$BUILD_DIR", "FrameworkEnergia"),
-    join(FRAMEWORK_DIR, "cores", env.BoardConfig().get("build.core"))
+    join(FRAMEWORK_DIR, "cores", board.get("build.core"))
 ))
 
 env.Append(LIBS=libs)

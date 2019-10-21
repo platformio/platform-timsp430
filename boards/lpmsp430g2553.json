@@ -54,7 +54,7 @@
   "upload": {
     "maximum_ram_size": 512,
     "maximum_size": 16384,
-    "protocol": "rf2500"
+    "protocol": "dslite"
   },
   "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430g2.html",
   "vendor": "TI"

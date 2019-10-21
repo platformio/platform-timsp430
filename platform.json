@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-timsp430.git"
   },
-  "version": "2.1.0",
+  "version": "2.2.0",
   "packageRepositories": [
     "https://dl.bintray.com/platformio/dl-packages/manifest.json",
     "http://dl.platformio.org/packages/manifest.json"
@@ -30,17 +30,22 @@
   "packages": {
     "toolchain-timsp430": {
       "type": "toolchain",
-      "version": "~1.40603.0"
+      "version": "~1.40603.190926"
     },
     "framework-energiamsp430": {
       "type": "framework",
       "optional": true,
-      "version": "1.10610.0"
+      "version": "~1.10807.0"
     },
     "tool-mspdebug": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.2200.0"
+      "version": "~1.2400.0"
+    },
+    "tool-dslite": {
+      "type": "uploader",
+      "optional": true,
+      "version": "~1.80200.1400"
     }
   }
 }

@@ -34,7 +34,7 @@
   "upload": {
     "maximum_ram_size": 2048,
     "maximum_size": 15360,
-    "protocol": "tilib"
+    "protocol": "dslite"
   },
   "url": "http://www.ti.com/tool/msp-exp430fr4133",
   "vendor": "TI"
