@@ -2,8 +2,7 @@
   "name": "timsp430",
   "title": "TI MSP430",
   "description": "MSP430 microcontrollers (MCUs) from Texas Instruments (TI) are 16-bit, RISC-based, mixed-signal processors designed for ultra-low power. These MCUs offer the lowest power consumption and the perfect mix of integrated peripherals for thousands of applications.",
-  "url": "http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/msp/overview.page",
-  "homepage": "http://platformio.org/platforms/timsp430",
+  "homepage": "http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/msp/overview.page",
   "license": "Apache-2.0",
   "engines": {
     "platformio": "<5"
