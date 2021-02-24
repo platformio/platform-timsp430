@@ -43,7 +43,7 @@ env.Replace(
 
     UPLOADER="mspdebug",
     UPLOADERFLAGS=[
-        "$UPLOAD_PROTOCOL" if system() != "Windows" else "tilib",
+        "$UPLOAD_PROTOCOL",
         "--force-reset"
     ],
     UPLOADCMD='$UPLOADER $UPLOADERFLAGS "prog $SOURCES"',
