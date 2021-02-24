@@ -1,6 +1,6 @@
 # TI MSP430: development platform for [PlatformIO](http://platformio.org)
 
-![alt text](https://github.com/platformio/platform-timsp430/workflows/Examples/badge.svg "TI MSP430 development platform")
+[![Build Status](https://github.com/platformio/platform-timsp430/workflows/Examples/badge.svg)](https://github.com/platformio/platform-timsp430/actions)
 
 MSP430 microcontrollers (MCUs) from Texas Instruments (TI) are 16-bit, RISC-based, mixed-signal processors designed for ultra-low power. These MCUs offer the lowest power consumption and the perfect mix of integrated peripherals for thousands of applications.
 
