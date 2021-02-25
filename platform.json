@@ -2,21 +2,21 @@
   "name": "timsp430",
   "title": "TI MSP430",
   "description": "MSP430 microcontrollers (MCUs) from Texas Instruments (TI) are 16-bit, RISC-based, mixed-signal processors designed for ultra-low power. These MCUs offer the lowest power consumption and the perfect mix of integrated peripherals for thousands of applications.",
-  "url": "http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/msp/overview.page",
-  "homepage": "http://platformio.org/platforms/timsp430",
+  "homepage": "http://www.ti.com/lsds/ti/microcontrollers_16-bit_32-bit/msp/overview.page",
   "license": "Apache-2.0",
+  "keywords": [
+      "dev-platform",
+      "Texas Instruments",
+      "MSP430"
+  ],
   "engines": {
-    "platformio": "<5"
+    "platformio": "^5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/platformio/platform-timsp430.git"
   },
-  "version": "2.2.0",
-  "packageRepositories": [
-    "https://dl.bintray.com/platformio/dl-packages/manifest.json",
-    "http://dl.platformio.org/packages/manifest.json"
-  ],
+  "version": "2.3.0",
   "frameworks": {
     "arduino": {
       "package": "framework-energiamsp430",
@@ -30,22 +30,26 @@
   "packages": {
     "toolchain-timsp430": {
       "type": "toolchain",
+      "owner": "platformio",
       "version": "~1.40603.190926"
     },
     "framework-energiamsp430": {
       "type": "framework",
       "optional": true,
-      "version": "~1.10807.0"
+      "owner": "platformio",
+      "version": "~1.10810.0"
     },
     "tool-mspdebug": {
       "type": "uploader",
       "optional": true,
+      "owner": "platformio",
       "version": "~1.2400.0"
     },
     "tool-dslite": {
       "type": "uploader",
       "optional": true,
-      "version": "~1.80200.1400"
+      "owner": "platformio",
+      "version": "~1.90200.1400"
     }
   }
 }
