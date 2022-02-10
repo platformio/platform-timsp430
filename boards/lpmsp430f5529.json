@@ -33,7 +33,7 @@
   "name": "TI LaunchPad MSP-EXP430F5529LP",
   "upload": {
     "maximum_ram_size": 8192,
-    "maximum_size": 48128,
+    "maximum_size": 131072,
     "protocol": "dslite"
   },
   "url": "http://www.ti.com/ww/en/launchpad/launchpads-msp430-msp-exp430f5529lp.html",
