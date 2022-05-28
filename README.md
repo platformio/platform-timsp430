@@ -1,4 +1,4 @@
-# TI MSP430: development platform for [PlatformIO](http://platformio.org)
+# TI MSP430: development platform for [PlatformIO](https://platformio.org)
 
 [![Build Status](https://github.com/platformio/platform-timsp430/workflows/Examples/badge.svg)](https://github.com/platformio/platform-timsp430/actions)
 
@@ -9,7 +9,7 @@ MSP430 microcontrollers (MCUs) from Texas Instruments (TI) are 16-bit, RISC-base
 
 # Usage
 
-1. [Install PlatformIO](http://platformio.org)
+1. [Install PlatformIO](https://platformio.org)
 2. Create PlatformIO project and configure a platform option in [platformio.ini](https://docs.platformio.org/page/projectconf.html) file:
 
 ## Stable version
