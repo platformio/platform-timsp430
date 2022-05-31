@@ -1,7 +1,7 @@
 {
   "build": {
     "core": "msp430",
-    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430G2476LP",
+    "extra_flags": "-DENERGIA_ARCH_MSP430 -DENERGIA_MSP_EXP430FR2476LP",
     "f_cpu": "16000000L",
     "hwids": [
       [
@@ -9,8 +9,8 @@
         "0x0c9f"
       ]
     ],
-    "mcu": "msp430g2476",
-    "variant": "MSP-EXP430G2476LP"
+    "mcu": "msp430fr2476",
+    "variant": "MSP-EXP430FR2476LP"
   },
   "debug": {
     "tools": {
@@ -36,6 +36,6 @@
     "maximum_size": 65536,
     "protocol": "dslite"
   },
-  "url": "http://www.ti.com/product/MSP430G2476",
+  "url": "http://www.ti.com/product/MSP430FR2476",
   "vendor": "TI"
 }

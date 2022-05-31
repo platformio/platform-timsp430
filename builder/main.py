@@ -14,7 +14,6 @@
 
 import sys
 from os.path import join
-from platform import system
 
 from SCons.Script import (COMMAND_LINE_TARGETS, AlwaysBuild, Builder, Default,
                           DefaultEnvironment)
@@ -51,14 +50,20 @@ env.Replace(
     PROGSUFFIX=".elf"
 )
 
-env.Append(
-    ASFLAGS=["-x", "assembler-with-cpp"],
+machine_flags = [
+    "-mmcu=$BOARD_MCU",
+]
 
-    CCFLAGS=[
+env.Append(
+    ASFLAGS=machine_flags,
+    ASPPFLAGS=[
+        "-x", "assembler-with-cpp",
+    ],
+
+    CCFLAGS=machine_flags + [
         "-Os",
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
-        "-mmcu=$BOARD_MCU"
     ],
 
     CXXFLAGS=[
@@ -70,9 +75,8 @@ env.Append(
         ("F_CPU", "$BOARD_F_CPU")
     ],
 
-    LINKFLAGS=[
+    LINKFLAGS=machine_flags + [
         "-Os",
-        "-mmcu=$BOARD_MCU",
         "-Wl,-gc-sections,-u,main"
     ],
 
@@ -93,10 +97,6 @@ env.Append(
         )
     )
 )
-
-# copy CCFLAGS to ASFLAGS (-x assembler-with-cpp mode)
-env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
-
 
 # Allow user to override via pre:script
 if env.get("PROGNAME", "program") == "program":
@@ -119,6 +119,7 @@ if "nobuild" in COMMAND_LINE_TARGETS:
 else:
     target_elf = env.BuildProgram()
     target_firm = env.ElfToHex(join("$BUILD_DIR", "${PROGNAME}"), target_elf)
+    env.Depends(target_firm, "checkprogsize")
 
 AlwaysBuild(env.Alias("nobuild", target_firm))
 target_buildprog = env.Alias("buildprog", target_firm, target_firm)
