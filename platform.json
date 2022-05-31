@@ -16,7 +16,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-timsp430.git"
   },
-  "version": "2.3.0",
+  "version": "2.4.0",
   "frameworks": {
     "arduino": {
       "package": "framework-energiamsp430",
