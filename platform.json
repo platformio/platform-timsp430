@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/platformio/platform-timsp430.git"
+    "url": "https://github.com/thijses/platform-timsp430-newGCC.git"
   },
   "version": "2.4.0",
   "frameworks": {
