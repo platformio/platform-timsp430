@@ -1,3 +1,4 @@
+# Copyright 2021 Upside Down Labs <contact@upsidedownlabs.tech>
 # Copyright 2014-present PlatformIO <contact@platformio.org>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -151,10 +152,24 @@ if env.subst("$UPLOAD_PROTOCOL") == "dslite":
     )
     upload_target = target_elf
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
+elif env.subst("$UPLOAD_PROTOCOL") == "msptool":
+    env.Replace(
+        UPLOADER=join(env.PioPlatform().get_package_dir("tool-msptool") or "", "msptool.py"),
+        MSPTOOLDIR=env.PioPlatform().get_package_dir("tool-msptool"),
+        UPLOADCMD='"$PYTHONEXE" "$UPLOADER" -d $MSPTOOLDIR -p $UPLOAD_PORT -f $SOURCES'
+    )
+    upload_target = target_elf
+    upload_actions = [
+        env.VerboseAction(env.AutodetectUploadPort, "Looking for upload port..."),
+        env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")
+    ]
+    
 
-target_upload = env.Alias("upload", upload_target,
-                          env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
-AlwaysBuild(target_upload)
+if env.subst("$UPLOAD_PROTOCOL") == "msptool":
+    env.AddPlatformTarget("upload", upload_target, upload_actions, "Upload")
+else:
+    target_upload = env.Alias("upload", upload_target, env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE"))
+    AlwaysBuild(target_upload)
 
 #
 # Default targets

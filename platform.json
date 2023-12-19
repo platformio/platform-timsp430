@@ -50,6 +50,12 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.90200.1400"
+    },
+    "tool-msptool": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "lorforlinux",
+      "version": "~0.3"
     }
   }
 }
