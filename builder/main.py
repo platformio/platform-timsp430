@@ -35,8 +35,8 @@ env.Replace(
 
     PIODEBUGFLAGS=["-O0", "-g3", "-ggdb", "-gdwarf-2"],
 
-    SIZEPROGREGEXP=r"^(?:\.text|\.data|\.rodata|\.vectors)\s+([0-9]+).*",
-    SIZEDATAREGEXP=r"^(?:\.data|\.bss|\.noinit)\s+(\d+).*",
+    SIZEPROGREGEXP=r"^(?:\.(?:(?:lower|upper)\.)?(?:text|data|rodata)|\.rodata2|\.lowtext|\.persistent|\.vectors|__(?:interrupt_vector_\d+|reset_vector))\s+([0-9]+).*",
+    SIZEDATAREGEXP=r"^(?:\.(?:(?:lower|upper)\.)?(?:data|bss)|\.noinit|\.heap)\s+(\d+).*",
     SIZECHECKCMD="$SIZETOOL -A -d $SOURCES",
     SIZEPRINTCMD='$SIZETOOL -B -d $SOURCES',
 
